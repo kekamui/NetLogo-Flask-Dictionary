@@ -1,0 +1,32 @@
+{
+  "primitives": {
+      "in-radius":{
+        "tag":"inradiuskey",
+        "description":"Reports an agentset that includes only those agents from the original agentset whose distance from the caller is less than or equal to number. (This can include the agent itself). The distance to or a from a patch is measured from the center of the patch.",
+        "keywords": "around, diameter, neighbors",
+        "turtles": true,
+        "links": true,
+        "patches": true,
+        "observer": false,
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": "some netlogo code here"
+        }
+      },
+      "neighbors": {
+        "tag":"neihgborskey",
+        "description":"Reports an agentset containing the 8 surrounding patches (neighbors) or 4 surrounding patches (neighbors4).",
+        "keywords": "some, keywords, here",
+        "turtles": true,
+        "links": false,
+        "patches": true,
+        "observer": false,
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": "some netlogo code here"
+        }      
+      }
+      
+  }
+  
+}

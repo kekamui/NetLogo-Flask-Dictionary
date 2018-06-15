@@ -1,0 +1,81 @@
+{% include 'header.html' %}
+{% include 'dictionary.html' %}
+  <div class="jumbotron">
+    <h1 style=" font-size: 4em">Procedures</h1><br>
+</div>
+
+    <p style="font-size:1.2em">In NetLogo, <b>commands</b> and <b>reporters</b> tell agents what to do. A command is an action for an agent to carry out, resulting in some effect. A reporter is instructions for computing a value, which the agent then "reports" to whoever asked it.</p>
+
+    <p style="font-size:1.2em">Typically, a command name begins with a verb, such as "create", "die", "jump", "inspect", or "clear". Most reporter names are nouns or noun phrases.</p>
+
+      <p style="font-size:1.2em">Commands and reporters built into NetLogo are called <b>primitives.</b></p>
+
+    <p style="font-size:1.2em">Commands and reporters you define yourself are called procedures. Each procedure has a name, preceded by the keyword <code>to</code> or <code>to-report</code>, depending on whether it is a command procedure or a reporter procedure. The keyword end marks the <code>end</code> of the commands in the procedure. Once you define a procedure, you can use it elsewhere in your program.</p>
+
+    <p style="font-size:1.2em"> Many commands and reporters take <b>inputs</b> -- values that the command or reporter uses in carrying out its actions or computing its result.)</p>
+
+
+      <p style="font-size:1.2em"> Here are two command procedures:</p>
+
+      <pre>to setup
+  clear-all
+  create-turtles 10
+  reset-ticks
+end
+
+to go
+  ask turtles [
+    fd 1            ;; forward 1 step
+    rt random 10    ;; turn right
+    lt random 10    ;; turn left
+  ]
+  tick
+end</pre>
+
+      <p style="font-size:1.2em"> Note the use of semicolons to add "comments" to the program. Comments can make your code easier to read and understand, but they don't affect its behavior.</p>
+
+    <p style="font-size:1.2em"> In this program,</p>
+
+      <p style="font-size:1.2em"> <b>1.</b> setup and go are user-defined commands.</p>
+
+    <p style="font-size:1.2em"> <b>2.</b> <code>clear-all</code>, <code>create-turtles</code>, <code>reset-ticks</code>, <code>ask</code>, <code>lt</code> ("left turn"), <code>rt</code> ("right turn") and <code>tick</code>, are all primitive commands.</p>
+
+    <p style="font-size:1.2em"> <b>3.</b> <code>random</code> and <code>turtles</code> are primitive reporters. <code>random</code> takes a single number as an input and reports a random integer that is less than the input (in this case, between 0 and 9). <code>turtles</code> reports the agentset consisting of all the turtles. (We'll explain about agentsets later.)</p>
+
+
+      <p style="font-size:1.2em"> <code>setup</code> and <code>go</code> can be called by other procedures, or by buttons, or from the Command Center.</p>
+
+      <p style="font-size:1.2em"> Many NetLogo models have a once button that calls a procedure called <code>setup</code> and a forever button that calls a procedure called <code>go</code>.</p>
+
+      <p style="font-size:1.2em"> In NetLogo, you may specify which agents -- turtles, patches, or links -- are to run each command. If you don't specify, the code is run by the observer. In the code above, the observer uses <code>ask</code> to make the set of all turtles run the commands between the square brackets.</p>
+
+      <p style="font-size:1.2em"> <code>clear-all</code> and <code>create-turtles</code> can only be run by the observer. <code>fd</code>, on the other hand, can only be run by turtles. Some other commands and reporters, such as <code>set</code> and <code>ticks</code>, can be run by different agent types.</p>
+
+      <p style="font-size:1.2em"> Here are some more advanced features you can take advantage of when defining your own procedures.</p>
+
+      <h4>Procedures with inputs</h4>
+      <p style="font-size:1.2em"> Procedures can take inputs, just like many primitives do. To create a procedure that accepts inputs, put their names in square brackets after the procedure name. For example:</p>
+
+         <pre>to draw-polygon [num-sides len]  ;; turtle procedure
+  pen-down
+  repeat num-sides [
+    fd len
+    rt 360 / num-sides
+  ]
+end</pre>
+
+      <p style="font-size:1.2em"> Elsewhere in the program, you might use the procedure by asking the turtles to each draw an octagon with a side length equal to its who number:</p>
+
+        <pre>ask turtles [ draw-polygon 8 who ]</pre>
+
+      <h4>Reporter procedures</h4>
+      <p style="font-size:1.2em"> Just like you can define your own commands, you can define your own reporters. You must do two special things. First, use <code>to-report</code> instead of <code>to</code> to begin your procedure. Then, in the body of the procedure, use <code>report</code> to report the value you want to report.</p>
+
+         <pre>to-report absolute-value [number]
+  ifelse number >= 0
+    [ report number ]
+    [ report (- number) ]
+end</pre>
+
+
+{% include 'footer.html' %}

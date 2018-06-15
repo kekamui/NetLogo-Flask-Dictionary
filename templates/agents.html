@@ -1,0 +1,29 @@
+{% include 'header.html' %}
+{% include 'basics.html' %}
+
+  <div class="jumbotron">
+    <h1 style=" font-size: 4em">Agents</h1>
+</div>
+
+    <p style="font-size:1.2em">The NetLogo world is made up of <b>agents</b>. Agents are beings that can follow instructions.</p>
+
+    <p style="font-size:1.2em">In NetLogo, there are four types of agents: <b>turtles, patches, links</b>, and the <b>observer</b>.</p>
+
+    <p style="font-size:1.2em">Turtles are agents that move around in the <b>world</b>. The world is two dimensional and is divided up into a grid of patches. Each patch is a square piece of "ground" over which turtles can move. Links are agents that connect two turtles. The observer doesn't have a location -- you can imagine it as looking out over the world of turtles and patches.</p>
+
+    <p style="font-size:1.2em">The observer doesn't observe passively -- it gives instructions to the other agents.</p>
+
+    <p style="font-size:1.2em"> When NetLogo starts up, there are no turtles. The observer can make new turtles. Patches can make new turtles too. (Patches can't move, but otherwise they're just as "alive" as turtles.)</p>
+
+
+      <p style="font-size:1.2em"> Patches have coordinates. The patch at coordinates (0, 0) is called the origin and the coordinates of the other patches are the horizontal and vertical distances from this one. We call the patch's coordinates <code>pxcor</code> and <code>pycor</code>. Just like in the standard mathematical coordinate plane, <code>pxcor</code> increases as you move to the right and <code>pycor</code> increases as you move up.</p>
+
+      <pre>globals [score]</pre>
+
+      <p style="font-size:1.2em"> The total number of patches is determined by the settings <code>min-pxcor</code>, <code>max-pxcor</code>, <code>min-pycor</code>, and <code>max-pycor</code> When NetLogo starts up, <code>min-pxcor</code>, <code>max-pxcor</code>, <code>min-pycor</code>, and <code>max-pycor</code> are -16, 16, -16, and 16 respectively. This means that <code>pxcor</code> and <code>pycor</code>code> both range from -16 to 16, so there are 33 times 33, or 1089 patches total. (You can change the number of patches with the Settings button.)</p>
+
+    <p style="font-size:1.2em"> Turtles have coordinates too: <code>xcor</code> and <code>ycor</code>. A patch's coordinates are always integers, but a turtle's coordinates can have decimals. This means that a turtle can be positioned at any point within its patch; it doesn't have to be in the center of the patch.</p>
+
+      <p style="font-size:1.2em"> Links do not have coordinates. Every link has two ends, and each end is a turtle. If either turtle dies, the link dies too. A link is represented visually as a line connecting the two turtles.</p>
+
+      {% include 'footer.html' %}

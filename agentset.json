@@ -1,0 +1,96 @@
+{
+  "primitives": {
+      "in-radius":{
+        "tag":"InRadius",
+        "description":"Reports the agents whose distance from myself is less than or equal to the given number. (This can include the agent itself). The distance to or a from a patch is measured from the center of the patch.",
+        "keywords": "around, diameter, neighbors",
+        "turtles": true,
+        "links": true,
+        "patches": true,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": "\r\n;; in the code below\r\n;; sheep mark the grass they can eat immediately\r\n\r\nto setup\r\n\tclear-all\r\n        ask patches\r\n           [ set pcolor green]\r\n\r\n\tcreate-turtles 3 [\r\n            move-to one-of patches\r\n            set shape \"sheep\"\r\n            set size 2\r\n            set color white\r\n        ]\r\n\treset-ticks\r\nend\r\nto go\r\n        ask patches with [pcolor = yellow]\r\n            [set pcolor green]\r\n\task turtles [\r\n            ask (patches with [pcolor = green]) in-radius 2\r\n\t         [ set pcolor yellow ]\r\n        ]\r\nend\r\n\r\n                    \r\n                "
+        }
+      },
+      "neighbors": {
+        "tag":"Neighbors",
+        "description":"Reports an agentset containing the 8 surrounding patches (neighbors) or 4 surrounding patches (neighbors4).",
+        "keywords": "some, keywords, here",
+        "turtles": true,
+        "links": false,
+        "patches": true,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": "                                        \r\n;; in the code below\r\n;; sheep mark the grass red and turn yellow when \r\n;; interacting with another sheep\r\n\r\nto setup\r\n\tclear-all\r\n        ask patches\r\n           [ set pcolor one-of [black green]]\r\n\r\n\tcreate-turtles 10 [\r\n            move-to one-of patches\r\n            set shape \"sheep\"\r\n            set size 3\r\n            set color white\r\n            set label-color red\r\n        ]\r\n\treset-ticks\r\nend\r\nto go\r\n        ask patches with [pcolor = red]\r\n            [set pcolor green]\r\n\task turtles [\r\n           right random 10\r\n           left random 10\r\n           forward 0.5\r\n            ask turtles-on neighbors\r\n\t         [ set color yellow \r\nask (patches with [pcolor = green]) in-radius 4\r\n            [ set pcolor red ]]\r\n             \r\n        ]\r\n\ttick\r\nend\r\n\r\n                  \r\n                     "
+        }
+      },
+      "patches": {
+        "tag":"Patches",
+        "description":"Reports the agentset consisting of all patches.",
+        "keywords": "some, keywords, here",
+        "turtles": true,
+        "links": false,
+        "patches": true,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": "                                                            \r\n;; in the code below\r\n;; all patches change color\r\n;; when turtles bump into each other\r\n\r\nto setup\r\n\tclear-all\r\n        ask patches\r\n           [ set pcolor one-of [black green]]\r\n\r\n\tcreate-turtles 10 [\r\n            move-to one-of patches\r\n            set shape \"sheep\"\r\n            set size 3\r\n            set color white\r\n            set label-color red\r\n        ]\r\n\treset-ticks\r\nend\r\nto go\r\n        ask patches with [pcolor = red]\r\n            [set pcolor green]\r\n        ask patches with [pcolor = blue]\r\n            [set pcolor black]\r\n        ask patches with [pcolor = pink]\r\n            [set pcolor blue]\r\n\r\n\task turtles [\r\n           right random 10\r\n           left random 10\r\n           forward 0.5\r\n            ask turtles-on neighbors\r\n\t         [ \r\n        ask (patches with [pcolor = green]) \r\n            [ set pcolor red ]\r\n        ask (patches with [pcolor = black]) \r\n            [ set pcolor one-of [blue pink]]\r\n]\r\n             \r\n        ]\r\n\ttick\r\nend\r\n\r\n                  \r\n                     \r\n                    "
+        }
+      },
+      "sort-by": {
+        "tag":"SortBy",
+        "description":"If the input is a list, reports a new list containing the same items as the input list, in a sorted order defined by the\r\n  boolean reporter. reporter may be an anonymous reporter or the name of a reporter. If the input is an agentset or a list\r\n  of agents, reports a list (never an agentset) of agents. If the input is a list, the sort is stable, that is, the order\r\n  of items considered equal by the reporter is not disturbed. If the input is an agentset, ties are broken randomly.",
+        "keywords": "some, keywords, here",
+        "turtles": false,
+        "links": false,
+        "patches": false,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": "                                        \r\n;; in the code below\r\n;; sheeps are arranged by size\r\n\r\nto setup\r\n\tclear-all\r\n        ask patches\r\n           [ set pcolor one-of [black green]]\r\n\r\n\tcreate-turtles 1 [\r\n            move-to one-of patches\r\n            set shape \"sheep\"\r\n            set size 3\r\n            set color white\r\n        ]\r\n\tcreate-turtles 1 [\r\n            move-to one-of patches\r\n            set shape \"sheep\"\r\n            set size 4\r\n            set color violet\r\n        ]\r\n\tcreate-turtles 1 [\r\n            move-to one-of patches\r\n            set shape \"sheep\"\r\n            set size 5\r\n            set color yellow\r\n        ]\r\n\tcreate-turtles 1 [\r\n            move-to one-of patches\r\n            set shape \"sheep\"\r\n            set size 6\r\n            set color red\r\n        ]\r\n\treset-ticks\r\nend\r\nto go\r\n\r\n\task turtles [\r\n           right random 30\r\n           left random 30\r\n           forward 1\r\n           layout-circle sort-by [ [a b] -> [size] of a < [size] of b ] turtles 10\r\n\r\n           ]\r\nend\r\n\r\n                    \r\n                    "
+        }
+      },
+      "count": {
+        "tag":"Count",
+        "description":"Reports the number of agents in the given agentset.",
+        "keywords": "some, keywords, here",
+        "turtles": true,
+        "links": false,
+        "patches": true,
+        "observer": false,
+        "textbox": true,
+        "text": "\nshow count turtles\r\n;; prints the total number of turtles\r\nshow count patches with [pcolor = red]\r\n;; prints the total number of red patches",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": "                    \r\n;; in the code below\r\n;; red label shows the number of yellow patches\r\n\r\nto setup\r\n\tclear-all\r\n        ask patches\r\n           [ set pcolor green]\r\n\r\n\tcreate-turtles 1 [\r\n            move-to one-of patches\r\n            set shape \"sheep\"\r\n            set size 5\r\n            set color white\r\n            set label-color red\r\n        ]\r\n\treset-ticks\r\nend\r\nto go\r\n        ask patches with [pcolor = yellow]\r\n            [set pcolor green]\r\n\task turtles [\r\n           right random 10\r\n           left random 10\r\n           forward 0.5\r\n            ask (patches with [pcolor = green]) in-radius 2\r\n\t         [ set pcolor yellow ]\r\n            set label count (patches with [pcolor = yellow]) in-radius 6\r\n\r\n        ]\r\n\ttick\r\nend\r\n\r\n                    "
+        }
+      },
+      "any": {
+        "tag":"Any",
+        "description":"Reports true if the given agentset is non-empty, false otherwise.\r\nEquivalent to \"count agentset > 0\", but more efficient (and arguably more readable).\r\nNote: nobody is not an agentset. You only get nobody back in situations where you were expecting a single agent, not a whole agentset. If any? gets nobody as input, an error results.",
+        "keywords": "some, keywords, here",
+        "turtles": true,
+        "links": false,
+        "patches": true,
+        "observer": false,
+        "textbox": true,
+        "text": "\nif any? turtles with [color = red]\r\n[ show \"at least one turtle is red!\" ]",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": "\nto setup\r\nclear-all\r\n\r\n;; creates blue airplane shaped turtles at random x and y locations\r\ncreate-turtles slider [\r\n  set shape \"airplane\"\r\n  set color blue\r\n  setxy random-xcor random-ycor\r\n]\r\n\r\n;; sets the color one of the turtles to red\r\nask one-of turtles [ set color red ]\r\n\r\nreset-ticks\r\nend\r\n\r\nto go\r\nask turtles [\r\n  fd 1\r\n\r\n  ;; if a blue turtle touches a red turtle, it changes its color red.\r\n  if any? turtles-here with [color = red] [\r\n    set color red\r\n    pen-down\r\n  ]\r\n]\r\ntick\r\nend\r\n                  "
+        }
+      }
+
+  }
+
+}

@@ -1,0 +1,83 @@
+.vertical-menu {
+    width: 200px;
+    height: 1000px;
+    overflow-y: auto;
+    float: left; 
+}
+
+.vertical-menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none; 
+}
+
+
+.vertical-menu a:hover {
+    background-color: #ccc;
+    
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.side-bar-title {
+    font-size: 20px;
+    background-color:lightgrey;
+    line-height:35px;
+    
+}
+
+.side-bar-rest {
+    line-height:5px;
+    font-size:70%;
+}
+
+.navbar-default {
+    border-width:0;
+}
+
+.logo {
+    width:50px; 
+    height:50px;
+}
+
+.title-logo {
+    font-family: "Arial Black";
+} 
+
+.inblock {
+    float:left;
+     max-width: 100%;  
+}
+
+.clearfix{
+    clear:both;
+    overflow-x: hidden;
+}
+
+.move-text-left{
+    position: relative;
+    left: 10px;
+    text-overflow: ellipsis-word;
+    width: auto;
+}
+          
+.context {
+    background-color: #f4f4f4;
+    position: relative;
+    z-index: -1;
+    max-width: 100%;
+    overflow-x: hidden;
+ 
+}
+.contextPatches {
+    background-color: #f4f4f4;
+    position: relative;
+    left: 10px;
+    z-index: -1;
+}
+

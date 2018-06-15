@@ -1,0 +1,31 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <!-- create a row, which we will divide to 2 columns-->
+
+    <div class="col-md-2">
+      <!-- left column-->
+
+
+      <h4 class="list-group-item-heading" style="padding-bottom: 5px">Basics</h4>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="{{ url_for('interface') }}">Interface</a></li>
+        <li class="list-group-item "><a href="{{ url_for('interfaceTab') }} ">Interface Tab</a></li>
+        <li class="list-group-item "><a href="{{ url_for('infoTab') }} ">Info Tab</a></li>
+        <li class="list-group-item "><a href="{{ url_for('codeTab') }} ">Code Tab</a></li>
+        <li class="list-group-item "><a href="{{ url_for('commandcenter') }} ">Command Center</a></li>
+        <li style="list-style: none ">&nbsp;</li>
+        <li class="list-group-item "><a href="{{ url_for('agents') }}">Agents</a></li>
+        <li class="list-group-item "><a href="{{ url_for('turtles') }} ">Turtles</a></li>
+        <li class="list-group-item "><a href="{{ url_for('patches') }} ">Patches</a></li>
+        <li class="list-group-item "><a href="{{ url_for('basiclinks') }} ">Links</a></li>
+        <li class="list-group-item "><a href="{{ url_for('colors') }} ">Colors</a></li>
+        <li class="list-group-item "><a href="{{ url_for('shapes') }} ">Shapes</a></li>
+        <li style="list-style: none ">&nbsp;</li>
+        <li class="list-group-item "><a href="{{ url_for('procedures') }}">Procedures</a></li>
+      </ul>
+
+    </div>
+    <div class="col-md-10">
+      <!-- right column-->

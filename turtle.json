@@ -1,0 +1,87 @@
+{
+  "primitives": {
+      "turtle":{
+        "tag":"turtle",
+        "inputs": "number",
+        "breed": "<breed>",
+        "description": "Reports the turtle with the given who number, or nobody if there is no such turtle. For breeded turtles you may also use the single breed form to refer to them.",
+        "keywords": "around, diameter, neighbors",
+        "turtles": true,
+        "links": true,
+        "patches": false,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": ""
+        }
+      },
+      "turtles-own":{
+        "tag":"turtles-own",
+        "inputs": "red green blue",
+        "breed": "<breeds-own>",
+        "description": "\r\nThe turtles-own keyword, like the globals, breed, -own, and patches-own keywords, can only be used at the beginning of a program, before any function definitions. It defines the variables belonging to each turtle.\r\n\r\nIf you specify a breed instead of \"turtles\", only turtles of that breed have the listed variables. (More than one turtle breed may list the same variable.)",
+        "keywords": "around, diameter, neighbors",
+        "turtles": false,
+        "links": true,
+        "patches": true,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": ""
+        }
+      },
+      "setxy":{
+        "tag":"setxy",
+        "inputs": "x y",
+        "breed": "",
+        "description": "\r\nThe turtle sets its x-coordinate to x and its y-coordinate to y.\r\n\r\nEquivalent to set xcor x set ycor y, except it happens in one time step instead of two.\r\n\r\nIf x or y is outside the world, NetLogo will throw a runtime error, unless wrapping is turned on in the relevant dimensions. For example, with wrapping turned on in both dimensions and the default world size where min-pxcor = -16, max-pxcor = 16, min-pycor = -16 and max-pycor = 16, asking a turtle to setxy 17 17 will move it to the center of patch (-16, -16).",
+        "keywords": "around, diameter, neighbors",
+        "turtles": false,
+        "links": true,
+        "patches": false,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": ""
+        }
+      },
+      "self":{
+        "tag":"self",
+        "inputs": "",
+        "description": "\r\nReports this turtle, patch, or link.\r\n\r\n\"self\" and \"myself\" are very different. \"self\" is simple; it means \"me\". \"myself\" means \"the agent who asked me to do what I'm doing right now.\"\r\n\r\nNote that it is always redundant to write [foo] of self. This is always equivalent to simply writing foo.",
+        "keywords": "around, diameter, neighbors",
+        "turtles": true,
+        "links": true,
+        "patches": false,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": ""
+        }
+      },
+      "pcolor":{
+        "tag":"pcolor",
+        "inputs": "",
+        "description": "\nThis is a built-in patch variable. It holds the color of the patch. You can set this variable to make the patch change color.\r\n\r\nAll patch variables can be directly accessed by any turtle standing on the patch. Color can be represented either as a NetLogo color (a single number) or an RGB color (a list of 3 numbers). ",
+        "keywords": "pcolor",
+        "turtles": true,
+        "links": true,
+        "patches": false,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": "\r\nto setup\r\n  clear-all\r\n\r\n  ask patches [\r\n\r\n    ;; sets random half of the pathes to turquoise and the other half to yellow\r\n    ;; if some random number between 0 to 100 is less than 50, set the patch color to turquoise, else set the patch color to yellow.\r\n    ifelse (random 100) < 50\r\n    [set pcolor turquoise]\r\n    [set pcolor yellow]\r\n  ]\r\n\r\n  create-turtles slider\r\n\r\n  reset-ticks\r\nend\r\n\r\nto go\r\n  ;;edit\r\n  ask turtles [\r\n    fd 1\r\n\r\n\r\n    ;; if the patch color is turquoise, then the turtle on top of this path to white.\r\n    if (pcolor = turquoise)[\r\n      set color white\r\n    ]\r\n\r\n    ;; if the patch color is yellow, then the turtle on top of this path to brown.\r\n    if (pcolor = yellow)[\r\n      set color brown\r\n    ]\r\n  ]\r\n  tick\r\nend\r\n"
+        }
+      },
+
+}

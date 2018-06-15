@@ -1,0 +1,84 @@
+{
+  "primitives": {
+      "approximate-hsb":{
+        "tag":"approximate-hsb",
+        "inputs": "hue saturation brightness",
+        "description": "\nReports a number in the range 0 to 140, not including 140 itself, that represents the given color, specified in the RGB spectrum, in NetLogo's color space.\r\n\r\nAll three inputs should be in the range 0 to 255.\r\n\r\nThe color reported may be only an approximation, since the NetLogo color space does not include all possible colors. (See approximate-hsb for a description of what parts of the HSB color space NetLogo colors cover; this is difficult to characterize in RGB terms.)",
+        "keywords": "hsb, color",
+        "turtles": true,
+        "links": true,
+        "patches": true,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": ""
+        }
+      },
+      "approximate-rbg":{
+        "tag":"approximate-rbg",
+        "inputs": "red green blue",
+        "description": "\nReports a number in the range 0 to 140, not including 140 itself, that represents the given color, specified in the RGB spectrum, in NetLogo's color space.\r\n\r\nAll three inputs should be in the range 0 to 255.\r\n\r\nThe color reported may be only an approximation, since the NetLogo color space does not include all possible colors. (See approximate-hsb for a description of what parts of the HSB color space NetLogo colors cover; this is difficult to characterize in RGB terms.)",
+        "keywords": "rbg, color",
+        "turtles": false,
+        "links": true,
+        "patches": true,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": ""
+        }
+      },
+      "base-colors":{
+        "tag":"base-colors",
+        "inputs": "",
+        "description": "Reports a list of the 14 basic NetLogo hues.",
+        "keywords": "base, color",
+        "turtles": false,
+        "links": true,
+        "patches": true,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": ""
+        }
+      },
+      "color":{
+        "tag":"color",
+        "inputs": "",
+        "description": "\nThis is a built-in turtle or link variable. It holds the color of the turtle or link. You can set this variable to make the turtle or link change color. Color can be represented either as a NetLogo color (a single number), or an RGB color (a list of 3 numbers).",
+        "keywords": "color",
+        "turtles": true,
+        "links": true,
+        "patches": false,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": "\r\nto setup\r\n  clear-all\r\n\r\n  ;; creates blue, red, or\/and  yellow turtles.\r\n  create-turtles slider [\r\n    set color one-of [blue red yellow]\r\n  ]\r\n\r\n  ;; sets the patches (background) to green.\r\n  ask patches [\r\n    set pcolor green\r\n  ]\r\n\r\n  reset-ticks\r\nend\r\n\r\nto go\r\n\r\n  ;; turtles move one step forward every tick.\r\n  ask turtles [\r\n    fd 1\r\n  ]\r\n\r\n  tick\r\nend\r\n"
+        }
+      },
+      "pcolor":{
+        "tag":"pcolor",
+        "inputs": "",
+        "description": "\nThis is a built-in patch variable. It holds the color of the patch. You can set this variable to make the patch change color.\r\n\r\nAll patch variables can be directly accessed by any turtle standing on the patch. Color can be represented either as a NetLogo color (a single number) or an RGB color (a list of 3 numbers). ",
+        "keywords": "pcolor",
+        "turtles": true,
+        "links": true,
+        "patches": false,
+        "observer": false,
+        "textbox": false,
+        "text": "",
+        "trywidget":{
+          "netlogoweb-file": "nlw-1s.html",
+          "code": "\r\nto setup\r\n  clear-all\r\n\r\n  ask patches [\r\n\r\n    ;; sets random half of the pathes to turquoise and the other half to yellow\r\n    ;; if some random number between 0 to 100 is less than 50, set the patch color to turquoise, else set the patch color to yellow.\r\n    ifelse (random 100) < 50\r\n    [set pcolor turquoise]\r\n    [set pcolor yellow]\r\n  ]\r\n\r\n  create-turtles slider\r\n\r\n  reset-ticks\r\nend\r\n\r\nto go\r\n  ;;edit\r\n  ask turtles [\r\n    fd 1\r\n\r\n\r\n    ;; if the patch color is turquoise, then the turtle on top of this path to white.\r\n    if (pcolor = turquoise)[\r\n      set color white\r\n    ]\r\n\r\n    ;; if the patch color is yellow, then the turtle on top of this path to brown.\r\n    if (pcolor = yellow)[\r\n      set color brown\r\n    ]\r\n  ]\r\n  tick\r\nend\r\n"
+        }
+      },
+
+}

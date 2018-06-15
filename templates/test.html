@@ -1,0 +1,39 @@
+{% include 'header.html' %}
+
+        <div class="jumbotron">
+          <h1 style=" font-size: 4em">Agentsets</h1>
+
+          <p style="font-size:1.2em">An agentset is exactly what its name implies, a set of agents. An agentset can contain either turtles, patches
+            or links, but not more than one type at once.</p>
+
+          <p style="font-size:1.2em">An agentset is not in any particular order. In fact, it's always in a random order. And every time you use it,
+            the agentset is in a different random order. This helps you keep your model from treating any particular turtles,
+            patches or links differently from any others (unless you want them to be). Since the order is random every time,
+            no one agent always gets to go first.</p>
+
+          <p style="font-size:1.2em">What's powerful about the agentset concept is that you can construct agentsets that contain only some turtles,
+            some patches or some links. For example, all the red turtles, or the patches with pxcor evenly divisible by five,
+            or the turtles in the first quadrant that are on a green patch or the links connected to turtle 0. These agentsets
+            can then be used by ask or by various reporters that take agentsets as inputs.</p>
+
+          <p style="font-size:1.2em">One way is to use <code>turtles-here</code> or <code>turtles-at</code>, to make an agentset containing only the
+            turtles on my patch, or only the turtles on some other patch at some x and y offsets. There's also turtles-on
+            so you can get the set of turtles standing on a given patch or set of patches, or the set of turtles standing
+            on the same patch as a given turtle or set of turtles.</p>
+
+          <p style="font-size:1.2em"> Once you have created an agentset, here are some simple things you can do: </p>
+          <ul>
+            <li>Use <code>ask</code> to make the agents in the agentset do something</li>
+            <li>Use <code>any?</code> to see if the agentset is empty</li>
+            <li>Use <code>all?</code> to see if every agent in an agentset satisfies a condition.</li>
+            <li>Use <code>count</code> to find out exactly how many agents are in the set</li>
+          </ul>
+          <p style="font-size:1.2em">Here are some more complex things you can do:</p>
+          </div>
+
+  <script>
+    $("#compile_inradius").click(function () {
+      alert("I'm sorry, Dave, I'm afraid I can't do that.")
+    });
+  </script>
+  {% include 'dictionar_footer.html' %}

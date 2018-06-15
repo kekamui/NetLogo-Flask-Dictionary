@@ -1,0 +1,30 @@
+;; in the code below
+;; sheep mark the grass they can eat immediately
+
+to setup
+	clear-all
+        ask patches
+           [ set pcolor one-of [black green]]
+
+	create-turtles 4 [
+            move-to one-of patches
+            set shape "sheep"
+            set size 2
+            set color white
+            set label-color red
+        ]
+	reset-ticks
+end
+to go
+        ask patches with [pcolor = yellow]
+            [set pcolor green]
+	ask turtles [
+           right random 30
+           left random 30
+           forward 1
+            ask (patches with [pcolor = green]) in-radius 2
+	         [ set pcolor yellow ]
+            set label count (patches with [pcolor = yellow]) in-radius 2
+        ]
+	tick
+end
